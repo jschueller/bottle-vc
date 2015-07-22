@@ -1,5 +1,3 @@
-echo @off
-
 
 set PATH=%PATH%;C:\local\jom
 

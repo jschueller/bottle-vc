@@ -32,4 +32,4 @@ wget -c https://www.threadingbuildingblocks.org/sites/default/files/software_rel
 bsdtar -xf /tmp/tbb43_20150611oss_win.zip -C ${WINEPREFIX}/drive_c/local/
 
 # cp ./vc-* ${WINEPREFIX}
-# tar czf bottle-vc10.tar.gz ${WINEPREFIX}/*
+# tar czf bottle-vc10.tar.gz bottle-vc10/*
