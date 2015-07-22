@@ -1,4 +1,3 @@
-echo @off
 
 set PATH=%PATH%;C:\Program Files\CMake 2.8\bin
 set PATH=%PATH%;C:\local\jom
