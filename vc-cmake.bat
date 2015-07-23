@@ -7,4 +7,4 @@ set CC=
 set CXX=
 
 rem FIXME: https://bugs.winehq.org/show_bug.cgi?id=38859
-start mspdbsrv.exe -start -spawn -shutdowntime -1
+start mspdbsrv.exe -verbose -start -spawn -shutdowntime 10
