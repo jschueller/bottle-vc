@@ -7,9 +7,8 @@ export WINEPREFIX=$BASEDIR
 export WINEARCH=win32
 export WINEDEBUG=-all
 
-cp $BASEDIR/vc-env.bat /tmp
-cp $BASEDIR/vc-cmake.bat /tmp
+cp $BASEDIR/vc-env.bat /tmp/vc-cmake.bat
+cat $BASEDIR/vc-cmake.bat >> /tmp/vc-cmake.bat
 
-echo "call /tmp/vc-env.bat" >> /tmp/vc-cmake.bat
 echo "cmake -G \"NMake Makefiles JOM\" $@" >> /tmp/vc-cmake.bat
 wine cmd.exe /C /tmp/vc-cmake.bat
