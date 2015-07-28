@@ -27,4 +27,4 @@ mkdir -p $WINEPREFIX/drive_c/local/jom
 bsdtar -xf /tmp/jom.zip -C $WINEPREFIX/drive_c/local/jom
 
 # cp ./vc-* $WINEPREFIX
-# tar czf bottle-vc10.tar.gz $WINEPREFIX/*
+# tar czf bottle-vc10.tar.gz bottle-vc10/*
