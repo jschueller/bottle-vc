@@ -1,8 +1,9 @@
 echo @off
 
-rem FIXME: vcvarsall should work to set the vars below:
-rem  call "%VSSHELL2010INSTALLDIR%VC\vcvarsall.bat"
-set PROCESSOR_ARCHITECTURE=AMD64
+rem FIXME: "%VSSHELL2010INSTALLDIR%VC\bin\vcvars32.bat
+rem fails: reg query "HKLM\Software\Microsoft\VisualStudio\SxS\VS7" /v "10.0"
+rem https://bugs.winehq.org/show_bug.cgi?id=24017
+
 set VSSHELL2010INSTALLDIR=C:\Program Files\Microsoft Visual Studio 10.0\
 set VS100COMNTOOLS=%VSSHELL2010INSTALLDIR%\Common7\Tools\
 set VS100COMNTOOLSDIR=%VS100COMNTOOLS%
