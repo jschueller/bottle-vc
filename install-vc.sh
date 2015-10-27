@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # script to install msvc
+# pacman -S winetricks wine-mono wine_gecko samba
+
 set -e
 
 export WINEPREFIX=$PWD/bottle-vc10
@@ -13,10 +15,10 @@ rm -rf ${WINEPREFIX}
 winetricks --no-isolate -q cmake vc2010express
 
 # FIXME: boost unattended install does not work
-wget -c http://downloads.sourceforge.net/boost/boost-binaries/1.58.0/boost_1_58_0-msvc-10.0-32.exe -P /tmp
-wine /tmp/boost_1_58_0-msvc-10.0-32.exe /S
+wget -c http://downloads.sourceforge.net/boost/boost-binaries/1.59.0/boost_1_59_0-msvc-10.0-32.exe -P /tmp
+wine /tmp/boost_1_59_0-msvc-10.0-32.exe /S
 # dont need these huge libs for now
-rm -r ${WINEPREFIX}/drive_c/local/boost_1_58_0/lib32-msvc-10.0/
+rm -r ${WINEPREFIX}/drive_c/local/boost_1_59_0/lib32-msvc-10.0/
 
 wget -c http://downloads.sourceforge.net/openblas/v0.2.14/OpenBLAS-v0.2.14-Win32.zip -P /tmp
 bsdtar -xf /tmp/OpenBLAS-v0.2.14-Win32.zip -C ${WINEPREFIX}/drive_c/local/
@@ -28,8 +30,8 @@ wget -c http://download.qt.io/official_releases/jom/jom.zip -P /tmp
 mkdir -p ${WINEPREFIX}/drive_c/local/jom
 bsdtar -xf /tmp/jom.zip -C ${WINEPREFIX}/drive_c/local/jom
 
-wget -c https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb43_20150611oss_win.zip -P /tmp
-bsdtar -xf /tmp/tbb43_20150611oss_win.zip -C ${WINEPREFIX}/drive_c/local/
+wget -c https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20150728oss_win.zip -P /tmp
+bsdtar -xf /tmp/tbb44_20150728oss_win.zip -C ${WINEPREFIX}/drive_c/local/
 
 cp ./vc-* ${WINEPREFIX}
 
