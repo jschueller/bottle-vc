@@ -30,8 +30,8 @@ wget -c http://download.qt.io/official_releases/jom/jom.zip -P /tmp
 mkdir -p ${WINEPREFIX}/drive_c/local/jom
 bsdtar -xf /tmp/jom.zip -C ${WINEPREFIX}/drive_c/local/jom
 
-wget -c https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20151010oss_win.zip -P /tmp
-bsdtar -xf /tmp/tbb44_20151010oss_win.zip -C ${WINEPREFIX}/drive_c/local/
+wget -c https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20151010oss_win_1.zip -P /tmp
+bsdtar -xf /tmp/tbb44_20151010oss_win_1.zip -C ${WINEPREFIX}/drive_c/local/
 
 cp ./vc-* ${WINEPREFIX}
 
