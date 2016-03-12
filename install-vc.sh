@@ -2,6 +2,7 @@
 
 # script to install msvc
 # pacman -S winetricks wine-mono wine_gecko samba
+# on debian, requires winbind to run
 
 set -e
 
@@ -11,8 +12,9 @@ export WINEDEBUG=-all
 
 rm -rf ${WINEPREFIX}
 
-# FIXME: stuff crashes at the very end vc10 install with wine 1.7
-winetricks --no-isolate -q cmake vc2010express
+# NOTE: stuff crashes at the very end of vc10 install
+# NOTE: requires dotnet40 to avoid linker error
+winetricks --no-isolate -q cmake vc2010express dotnet40
 
 # FIXME: boost unattended install does not work
 wget -c http://downloads.sourceforge.net/boost/boost-binaries/1.60.0/boost_1_60_0-msvc-10.0-32.exe -P /tmp
@@ -30,8 +32,8 @@ wget -c http://download.qt.io/official_releases/jom/jom.zip -P /tmp
 mkdir -p ${WINEPREFIX}/drive_c/local/jom
 bsdtar -xf /tmp/jom.zip -C ${WINEPREFIX}/drive_c/local/jom
 
-wget -c https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20151010oss_win_1.zip -P /tmp
-bsdtar -xf /tmp/tbb44_20151010oss_win_1.zip -C ${WINEPREFIX}/drive_c/local/
+wget -c https://www.threadingbuildingblocks.org/sites/default/files/software_releases/windows/tbb44_20160128oss_win_0.zip -P /tmp
+bsdtar -xf /tmp/tbb44_20160128oss_win_0.zip -C ${WINEPREFIX}/drive_c/local/
 
 cp ./vc-* ${WINEPREFIX}
 
